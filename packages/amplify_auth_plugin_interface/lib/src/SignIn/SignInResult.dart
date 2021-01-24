@@ -20,8 +20,10 @@ import 'package:flutter/foundation.dart';
 class SignInResult {
   bool isSignedIn;
   AuthNextSignInStep nextStep;
-  SignInResult({@required this.isSignedIn, this.nextStep}) {
+  Map<String, String> parameters;
+  SignInResult({@required this.isSignedIn, this.nextStep, this.parameters}) {
     this.isSignedIn = isSignedIn;
     this.nextStep = nextStep;
+    this.parameters = parameters;
    }
 }

@@ -21,12 +21,14 @@ struct FlutterSignInResult  {
     var signInStep: String
     var additionalInfo: [String: String]
     var codeDeliveryDetails: [String: String]
+    var parameters: [String: String]
 
     init(res: AmplifyOperation<AuthSignInRequest, AuthSignInResult, AuthError>.OperationResult){
       self.isSignedIn = isComplete(res: res)
       self.signInStep = setState(res: res)
       self.additionalInfo = setAdditionalInfo(res: res)
       self.codeDeliveryDetails = setCodeDeliveryDetails(res: res)
+      self.parameters = res.parameters
     }
     
     func toJSON() -> Dictionary<String, Any> {
