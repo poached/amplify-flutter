@@ -89,6 +89,7 @@ class AmplifyAuthCognitoMethodChannel extends AmplifyAuthCognito {
   @override
   Future<SignInResult> signIn({SignInRequest request}) async {
     SignInResult res;
+print('MethodChannel.signIn');
     try {
       final Map<String, dynamic> data =
       await _channel.invokeMapMethod<String, dynamic>(
@@ -275,6 +276,8 @@ class AmplifyAuthCognitoMethodChannel extends AmplifyAuthCognito {
   }
 
   SignInResult _formatSignInResponse(Map<String, dynamic> res, String method) {
+    print('response: ');
+    print(JsonEncoder.withIndent("    ").convert(res));
     if (res.containsKey("nextStep")) {
       return CognitoSignInResult(isSignedIn: res["isSignedIn"], nextStep: AuthNextSignInStep(
         signInStep: res["nextStep"]["signInStep"],
