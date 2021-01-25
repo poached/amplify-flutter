@@ -280,7 +280,7 @@ print('MethodChannel.signIn');
     print(JsonEncoder.withIndent("    ").convert(res));
     if (res.containsKey("nextStep")) {
 print('nextStep...');
-print(['nextStep']);
+print(res['nextStep']);
       return CognitoSignInResult(isSignedIn: res["isSignedIn"], nextStep: AuthNextSignInStep(
         signInStep: res["nextStep"]["signInStep"],
         codeDeliveryDetails: res["nextStep"]["codeDeliveryDetails"],
