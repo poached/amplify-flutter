@@ -21,7 +21,12 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  amplify_core: ^0.0.1-dev.2
+  # amplify_core: ^0.0.1-dev.2
+  amplify_core:
+    git:
+      url: https://github.com/poached/amplify-flutter.git
+      path: packages/amplify_core
+      ref: challenge-params
 
 flutter:
   plugin:
