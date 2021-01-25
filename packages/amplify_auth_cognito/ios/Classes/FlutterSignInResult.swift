@@ -38,6 +38,7 @@ struct FlutterSignInResult  {
             "signInStep": self.signInStep,
             "additionalInfo": self.additionalInfo,
             "codeDeliveryDetails": self.codeDeliveryDetails
+            "parameters": self.parameters
         ]
       ]
    }
