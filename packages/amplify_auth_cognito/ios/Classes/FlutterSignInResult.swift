@@ -28,7 +28,7 @@ struct FlutterSignInResult  {
       self.signInStep = setState(res: res)
       self.additionalInfo = setAdditionalInfo(res: res)
       self.codeDeliveryDetails = setCodeDeliveryDetails(res: res)
-      self.parameters = res.parameters
+      self.parameters = res.signInResult.parameters
     }
     
     func toJSON() -> Dictionary<String, Any> {
