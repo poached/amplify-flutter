@@ -282,7 +282,8 @@ print('MethodChannel.signIn');
       return CognitoSignInResult(isSignedIn: res["isSignedIn"], nextStep: AuthNextSignInStep(
         signInStep: res["nextStep"]["signInStep"],
         codeDeliveryDetails: res["nextStep"]["codeDeliveryDetails"],
-        additionalInfo: res["nextStep"]["additionalInfo"] is String ? jsonDecode(res["nextStep"]["additionalInfo"]) : {}
+        additionalInfo: res["nextStep"]["additionalInfo"] is String ? jsonDecode(res["nextStep"]["additionalInfo"]) : {},
+        parameters: res["nextStep"]["parameters"]
       ));
     } else {
       throw(AmplifyDartExceptions.formatException(methodName: method, field: "nextStep"));
