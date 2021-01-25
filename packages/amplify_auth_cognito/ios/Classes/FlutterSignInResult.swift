@@ -28,7 +28,7 @@ struct FlutterSignInResult  {
       self.signInStep = setState(res: res)
       self.additionalInfo = setAdditionalInfo(res: res)
       self.codeDeliveryDetails = setCodeDeliveryDetails(res: res)
-      self.parameters = res.signInResult.parameters
+      self.parameters = setCustomAuthParameters(res: res)
     }
     
     func toJSON() -> Dictionary<String, Any> {
@@ -107,6 +107,19 @@ func setAdditionalInfo(res:  AmplifyOperation<AuthSignInRequest, AuthSignInResul
             infoMap = [:]
     }
     return infoMap
+}
+
+func setCustomAuthParameters(res:  AmplifyOperation<AuthSignInRequest, AuthSignInResult, AuthError>.OperationResult) -> [String: String] {
+    var parameterMap: [String: String] = [:]
+    switch res {
+        case .success(let signInResult):
+          if case let .confirmSignInWithCustomChallenge(parameters) = signInResult.nextStep {
+            parameterMap = parameters ?? [:]
+          }
+        case .failure:
+            parameterMap = [:]
+    }
+    return parameterMap
 }
 
 func setState(res: AmplifyOperation<AuthSignInRequest, AuthSignInResult, AuthError>.OperationResult) -> String {
