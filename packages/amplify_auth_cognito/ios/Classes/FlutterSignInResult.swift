@@ -37,7 +37,7 @@ struct FlutterSignInResult  {
         "nextStep": [
             "signInStep": self.signInStep,
             "additionalInfo": self.additionalInfo,
-            "codeDeliveryDetails": self.codeDeliveryDetails
+            "codeDeliveryDetails": self.codeDeliveryDetails,
             "parameters": self.parameters
         ]
       ]
